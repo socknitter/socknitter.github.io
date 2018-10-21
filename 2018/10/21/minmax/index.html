@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang=ja>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="min()とmax()を覚えようチュートリアルをやったときこれって似たようなものを自分で書いてみることができるのでは？と思ったので、できたできたしめしめニヤニヤ(・∀・)することにした。 1234567891011121314151617181920#min(),max()を自分で作ってみる#for で作ってみるdef check_min_max(args):    if args:">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="min()とmax()みたいなのを自分で作って楽しんでニヤニヤする">
+<meta property="og:url" content="https://socknitter.github.io/2018/10/21/minmax/index.html">
+<meta property="og:site_name" content="みちくさ">
+<meta property="og:description" content="min()とmax()を覚えようチュートリアルをやったときこれって似たようなものを自分で書いてみることができるのでは？と思ったので、できたできたしめしめニヤニヤ(・∀・)することにした。 1234567891011121314151617181920#min(),max()を自分で作ってみる#for で作ってみるdef check_min_max(args):    if args:">
+<meta property="og:locale" content="ja">
+<meta property="og:updated_time" content="2018-10-21T03:03:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="min()とmax()みたいなのを自分で作って楽しんでニヤニヤする">
+<meta name="twitter:description" content="min()とmax()を覚えようチュートリアルをやったときこれって似たようなものを自分で書いてみることができるのでは？と思ったので、できたできたしめしめニヤニヤ(・∀・)することにした。 1234567891011121314151617181920#min(),max()を自分で作ってみる#for で作ってみるdef check_min_max(args):    if args:">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>min()とmax()みたいなのを自分で作って楽しんでニヤニヤする</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/index.html">About</a></li>
+         
+          <li><a href="/memo/index.html">Memo</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/10/18/2018_10_18/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://socknitter.github.io/2018/10/21/minmax/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://socknitter.github.io/2018/10/21/minmax/&text=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://socknitter.github.io/2018/10/21/minmax/&title=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://socknitter.github.io/2018/10/21/minmax/&is_video=false&description=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする&body=Check out this article: https://socknitter.github.io/2018/10/21/minmax/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://socknitter.github.io/2018/10/21/minmax/&title=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://socknitter.github.io/2018/10/21/minmax/&title=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://socknitter.github.io/2018/10/21/minmax/&title=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://socknitter.github.io/2018/10/21/minmax/&title=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://socknitter.github.io/2018/10/21/minmax/&name=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        min()とmax()みたいなのを自分で作って楽しんでニヤニヤする
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">みちくさ</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-10-21T02:42:36.000Z" itemprop="datePublished">2018-10-21</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Python/">Python</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>min()とmax()を覚えようチュートリアルをやったとき<br>これって似たようなものを自分で書いてみることができるのでは？<br>と思ったので、できたできたしめしめニヤニヤ(・∀・)することにした。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#min(),max()を自分で作ってみる</span></span><br><span class="line"><span class="comment">#for で作ってみる</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_min_max</span><span class="params">(args)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> args:</span><br><span class="line">        maxNum = <span class="number">0</span></span><br><span class="line">        minNum = <span class="number">999999999</span> <span class="comment">#オーバーフローするかもなのでとりあえず9桁</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> args:</span><br><span class="line">            <span class="keyword">if</span> i &gt; maxNum:</span><br><span class="line">                maxNum = i</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> args:</span><br><span class="line">            <span class="keyword">if</span> j &lt; minNum:</span><br><span class="line">                minNum = j</span><br><span class="line">        <span class="keyword">return</span> maxNum, minNum</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'args Empty'</span></span><br><span class="line"></span><br><span class="line">print(check_min_max([]))</span><br><span class="line">print(check_min_max([<span class="number">100</span>,<span class="number">392</span>,<span class="number">43</span>,<span class="number">57</span>,<span class="number">2</span>,<span class="number">46</span>,<span class="number">7</span>,<span class="number">3345</span>]))</span><br></pre></td></tr></table></figure>
+<p>minの初期値を9桁の9にしているのがいささか気持ち悪いんだけど、<br>実務とかで使うときは、業務内容にあわせて何かしら最大値を想像して設定すると思われ。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#min(),max()を自分で作ってみる</span></span><br><span class="line"><span class="comment">#sort() で作ってみる</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_min_max</span><span class="params">(args)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> args:</span><br><span class="line">        args.sort()</span><br><span class="line">        minNum = args[<span class="number">0</span>]</span><br><span class="line">        maxNum = args[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">return</span> maxNum, minNum</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'args Empty'</span></span><br><span class="line"></span><br><span class="line">print(check_min_max([]))</span><br><span class="line">print(check_min_max([<span class="number">100</span>,<span class="number">392</span>,<span class="number">43</span>,<span class="number">57</span>,<span class="number">2</span>,<span class="number">46</span>,<span class="number">7</span>,<span class="number">3345</span>]))</span><br></pre></td></tr></table></figure>
+<p><code>sort()</code>メソッドを使うと元のリストがバキッと書き換えられる。(書き換えてほしくなければ、対象のリストを要コピー)</p>
+<p>minの値をminNumに入れたのち、maxは<code>.reverse()</code>してargsの先頭をmaxNumに入れる書き方もできるけど、これの方がスッキリしてるかと。</p>
+<p>個人的に、-1で最後尾の値を取れるっていうのは最高に気持ちいい。無駄がない。</p>
+<p>結果的にそんな時間もかからず書けたし、楽しかった。楽しいよ。<br>じゃあsortみたいなものを自分で書いたらどうなるか考えたくなる。</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/index.html">About</a></li>
+         
+          <li><a href="/memo/index.html">Memo</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://socknitter.github.io/2018/10/21/minmax/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://socknitter.github.io/2018/10/21/minmax/&text=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://socknitter.github.io/2018/10/21/minmax/&title=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://socknitter.github.io/2018/10/21/minmax/&is_video=false&description=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする&body=Check out this article: https://socknitter.github.io/2018/10/21/minmax/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://socknitter.github.io/2018/10/21/minmax/&title=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://socknitter.github.io/2018/10/21/minmax/&title=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://socknitter.github.io/2018/10/21/minmax/&title=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://socknitter.github.io/2018/10/21/minmax/&title=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://socknitter.github.io/2018/10/21/minmax/&name=min()とmax()みたいなのを自分で作って楽しんでニヤニヤする&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 仮庵
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/index.html">About</a></li>
+         
+          <li><a href="/memo/index.html">Memo</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-75485519-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+

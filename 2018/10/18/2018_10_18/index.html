@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="みちくさ">
 <meta property="og:description" content="不等号を使う時って、今まで数字が大きいか小さいか比べるっていうことでしか考えたことがなかった。しかし、if n &amp;lt; len(array):(意訳：もしnが列の長さより小さければTrue)で、ある範囲の中にnの存在が確認できる書き方に出くわし、それが最初はパッと理解できなかったし、自分の中にそんな発想もなかった。 このコードには「リストのインデックスを使ってなんらかの処理を行いたい」という前提">
 <meta property="og:locale" content="ja">
-<meta property="og:updated_time" content="2018-10-18T12:25:20.000Z">
+<meta property="og:updated_time" content="2018-10-18T12:28:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「もしnが列の長さより小さければTrue」での感動、みたいなもの。">
 <meta name="twitter:description" content="不等号を使う時って、今まで数字が大きいか小さいか比べるっていうことでしか考えたことがなかった。しかし、if n &amp;lt; len(array):(意訳：もしnが列の長さより小さければTrue)で、ある範囲の中にnの存在が確認できる書き方に出くわし、それが最初はパッと理解できなかったし、自分の中にそんな発想もなかった。 このコードには「リストのインデックスを使ってなんらかの処理を行いたい」という前提">
@@ -67,6 +67,8 @@
     <br/>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" href="/2018/10/21/minmax/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
         
         
         <li><a class="icon" href="/2018/10/15/hello/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
@@ -132,7 +134,7 @@
   <div class="content" itemprop="articleBody">
     <p>不等号を使う時って、今まで数字が大きいか小さいか比べるっていうことでしか考えたことがなかった。<br>しかし、<code>if n &lt; len(array):</code>(意訳：もしnが列の長さより小さければTrue)で、ある範囲の中にnの存在が確認できる書き方に出くわし、それが最初はパッと理解できなかったし、自分の中にそんな発想もなかった。</p>
 <p>このコードには「リストのインデックスを使ってなんらかの処理を行いたい」という前提がある。</p>
-<figure class="highlight python"><figcaption><span>samply.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkIndex</span><span class="params">(n, array)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> n &lt; len(array):</span><br><span class="line">	  <span class="keyword">return</span> array[n]</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">	  <span class="keyword">return</span> <span class="string">'None'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">  print(checkIndex(<span class="number">3</span>,[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))</span><br><span class="line">  print(checkIndex(<span class="number">2</span>,[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))</span><br><span class="line">  print(checkIndex(<span class="number">1</span>,[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))</span><br><span class="line">  print(checkIndex(<span class="number">0</span>,[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def checkIndex(n, array):</span><br><span class="line">	if n &lt; len(array):</span><br><span class="line">	  return array[n]</span><br><span class="line">	else:</span><br><span class="line">	  return &apos;None&apos;</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">  print(checkIndex(3,[1, 2, 3]))</span><br><span class="line">  print(checkIndex(2,[1, 2, 3]))</span><br><span class="line">  print(checkIndex(1,[1, 2, 3]))</span><br><span class="line">  print(checkIndex(0,[1, 2, 3]))</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">None</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
 <p>最初はなんでこの書き方をするのかが理解できなかった。<br>よって、まず<code>len(array)</code>は何を返すんだろうね？　というところを確かめる。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; len(array)</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
